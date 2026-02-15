@@ -2,6 +2,7 @@ go 1.24.7
 
 use (
 	./packages/api
+	./packages/api-gateway
 	./packages/clickhouse
 	./packages/client-proxy
 	./packages/db
