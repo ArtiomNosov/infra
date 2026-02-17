@@ -16,14 +16,6 @@ type ExecuteHandler struct {
 	config Config
 }
 
-type Config struct {
-	SyncMaxTimeout int
-	MaxTimeout     int
-	MaxFiles       int
-	MaxFileSize    int
-	MaxTotalSize   int
-}
-
 func NewExecuteHandler(envStorage *storage.EnvironmentStorage, jobStorage *storage.JobStorage, workerClient *worker.Client, config Config) *ExecuteHandler {
 	return &ExecuteHandler{
 		envStorage: envStorage,

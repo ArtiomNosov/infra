@@ -1,10 +1,8 @@
 package handlers
 
 import (
-	"context"
 	"net/http"
 	"os/exec"
-	"strings"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"github.com/e2b-dev/infra/packages/api-gateway/internal/storage"

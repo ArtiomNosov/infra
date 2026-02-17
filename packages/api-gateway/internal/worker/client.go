@@ -4,9 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"time"
-	"github.com/matoous/go-nanoid/v2"
+	gonanoid "github.com/matoous/go-nanoid/v2"
 	"github.com/redis/go-redis/v9"
-	"go.uber.org/zap"
 	"github.com/e2b-dev/infra/packages/api-gateway/internal/storage"
 )
 
@@ -40,7 +39,7 @@ type ExecutionResponse struct {
 func (c *Client) ExecuteSync(ctx context.Context, req *ExecutionRequest) (*ExecutionResponse, error) {
 	jobID := req.JobID
 	if jobID == "" {
-		id, err := nanoid.New()
+		id, err := gonanoid.New()
 		if err != nil {
 			return nil, err
 		}

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 	"github.com/gin-gonic/gin"
-	"github.com/matoous/go-nanoid/v2"
+	gonanoid "github.com/matoous/go-nanoid/v2"
 	"go.uber.org/zap"
 	"github.com/e2b-dev/infra/packages/api-gateway/internal/storage"
 )
@@ -66,7 +66,7 @@ func (h *JobsCodeHandler) CreateJob(c *gin.Context) {
 		timeout = h.config.MaxTimeout
 	}
 
-	jobID, err := nanoid.New()
+	jobID, err := gonanoid.New()
 	if err != nil {
 		zap.L().Error("Failed to generate job ID", zap.Error(err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal server error"})

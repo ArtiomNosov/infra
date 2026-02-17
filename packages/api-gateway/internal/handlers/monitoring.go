@@ -1,11 +1,9 @@
 package handlers
 
 import (
-	"context"
 	"net/http"
 	"time"
 	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
 	"github.com/e2b-dev/infra/packages/api-gateway/internal/storage"
 	"github.com/e2b-dev/infra/packages/api-gateway/internal/worker"
 )

@@ -125,7 +125,7 @@ func (h *JobsFilesHandler) CreateJob(c *gin.Context) {
 		timeout = h.config.MaxTimeout
 	}
 
-	jobID, err := nanoid.New()
+	jobID, err := gonanoid.New()
 	if err != nil {
 		zap.L().Error("Failed to generate job ID", zap.Error(err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal server error"})

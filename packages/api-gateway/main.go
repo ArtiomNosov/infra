@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"os"
 	"os/signal"
 	"syscall"
 	"time"
@@ -84,6 +83,21 @@ func main() {
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
 	r.Use(cors.New(corsConfig))
+
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"service": "API Gateway",
+			"version": "1.0",
+			"endpoints": gin.H{
+				"health": "/health",
+				"stats": "/stats",
+				"environments": "/environments",
+				"execute": "/execute",
+				"jobs_code": "/jobs/code",
+				"jobs_files": "/jobs/files",
+			},
+		})
+	})
 
 	r.GET("/health", monitoringHandler.Health)
 	r.GET("/stats", monitoringHandler.Stats)
