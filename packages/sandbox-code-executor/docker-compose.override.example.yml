@@ -1,0 +1,5 @@
+# Устаревший вариант. Рекомендуется использовать:
+#   docker compose -f docker-compose.no-redis.yml up -d
+#
+# Если всё же нужен override: скопировать как docker-compose.override.yml.
+# В некоторых версиях Docker Compose может оставаться ошибка про зависимость redis.

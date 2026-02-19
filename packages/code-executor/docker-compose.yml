@@ -3,7 +3,7 @@ services:
     image: ghcr.io/engineer-man/piston:latest
     container_name: piston-ainosov
     ports:
-      - "2000:2000"
+      - "2001:2000"   # хост:2001 (2000 может быть занят другим Piston)
     volumes:
       - piston-data:/piston
       - /sys/fs/cgroup/unified:/sys/fs/cgroup:rw

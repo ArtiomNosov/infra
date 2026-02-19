@@ -1,7 +1,8 @@
-ARG GOLANG_VERSION=1.24.7
+# Используем тег 1.24-alpine (без patch) — образ лучше кэшируется и реже зависает при pull
+ARG GOLANG_VERSION=1.24
 ARG ALPINE_VERSION=3.22
 
-FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} AS builder
+FROM golang:${GOLANG_VERSION}-alpine AS builder
 
 RUN apk add --no-cache make
 

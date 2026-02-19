@@ -36,7 +36,7 @@ func main() {
 	
 	defaultPistonURL := os.Getenv("PISTON_URL")
 	if defaultPistonURL == "" {
-		defaultPistonURL = "http:
+		defaultPistonURL = "http://localhost:2000"
 	}
 
 	flag.IntVar(&port, "port", defaultPort, "Port for HTTP server")

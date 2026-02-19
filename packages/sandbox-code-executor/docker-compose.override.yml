@@ -1,0 +1,19 @@
+# Копировать как docker-compose.override.yml если Redis уже запущен на хосте (порт 6379).
+# Тогда образ redis:7-alpine не будет тянуться и не будет запускаться контейнер Redis.
+#
+# cp docker-compose.override.example.yml docker-compose.override.yml
+# docker compose up -d
+
+services:
+  redis:
+    profiles:
+      - full
+
+  sandbox-code-executor:
+    depends_on:
+      piston:
+        condition: service_healthy
+    environment:
+      REDIS_URL: "redis://host.docker.internal:6379"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
